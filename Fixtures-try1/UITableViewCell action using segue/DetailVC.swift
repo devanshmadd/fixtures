@@ -7,11 +7,16 @@
 //
 import UIKit
 
-class DetailVC: UIViewController {
+class DetailVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var lblSports: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+  
+    
+//    @IBOutlet weak var img: UIImageView!
     var product: Sports?
     
     override func viewDidLoad() {
@@ -19,12 +24,39 @@ class DetailVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        lblSports.text = "Fixtures for \((product?.sportName)!) under the category \((product?.sportcategory)!) needs to be shown in form of cards"
+        lblSports.text = "Fixtures for \((product?.sportName)!) under the category \((product?.sportcategory)!)"
+        
+        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        tableView.dataSource = self
+        tableView.delegate = self
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        img.layer.cornerRadius = img.frame.size.width / 2
+//              img.clipsToBounds = true
+        return 8
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UITableViewCell
+        
+        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
+//        img.layer.cornerRadius = img.frame.size.width / 2
+//        img.clipsToBounds = true
+        
+        return cell
     }
     
 
