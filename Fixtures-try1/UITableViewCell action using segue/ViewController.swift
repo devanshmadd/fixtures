@@ -80,6 +80,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 cell = UITableViewCell(style: .subtitle, reuseIdentifier: "productstable")
             }
             
+//            if( indexPath.row % 2 == 0){
+//                cell?.backgroundColor=UIColor.black
+//                cell?.textLabel?.textColor=UIColor.white
+//                cell?.detailTextLabel?.textColor=UIColor.white
+//            }
+//            else{
+//                cell?.backgroundColor=UIColor.white
+//            }
+//            else if( indexPath.row % 2 == 0){
+//                cell?.backgroundColor=UIColor.orange
+//            }
+//            else if( indexPath.row % 5 == 0){
+//                cell?.backgroundColor=UIColor.green
+//            }
+//            else{
+//                cell?.backgroundColor=UIColor.yellow
+//            }
+            
             cell?.textLabel?.text = sportArray[indexPath.row].sportName
             cell?.detailTextLabel?.text = sportArray[indexPath.row].sportcategory
             
